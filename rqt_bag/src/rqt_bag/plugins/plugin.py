@@ -58,3 +58,11 @@ class Plugin(object):
         To allow your plugin to be run on all message types return ['*'].
         """
         return []
+
+    def get_sub_menu(self):
+        """
+        Return  a menu to be a sub menu below your plugin menu item
+        """
+        #TODO Default behavior to list all of that type? can we have a default tabbing behavior if we add to non-implemented one?
+        #TODO figure out communication between menu items and plugin.
+        return None

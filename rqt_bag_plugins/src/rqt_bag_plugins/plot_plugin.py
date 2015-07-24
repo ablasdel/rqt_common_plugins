@@ -48,3 +48,7 @@ class PlotPlugin(Plugin):
 
     def get_message_types(self):
         return ['*']
+
+    def get_sub_menu(self):
+        #TODO build QMenu of all open plugins of that type
+        return None

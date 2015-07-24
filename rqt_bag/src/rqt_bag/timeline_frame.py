@@ -712,7 +712,16 @@ class TimelineFrame(QGraphicsItem):
                 self._viewer_types.setdefault(msg_type, []).append(view)
                 if timeline_renderer:
                     self._timeline_renderers[msg_type] = timeline_renderer(self)
-
+            sub_menu = None
+            try:
+                sub_menu = plugin.set_sub_menu()
+            except AttributeError:
+                pass
+            except Exception as e:
+                qWarning('rqt_bag.TimelineFrame.load_plugins() failed to get sub menu from plugin "%s":\n%s' % (plugin_descriptor.plugin_id(), e))
+            if sub_menu:
+                #TODO add submenu to plugin menu items
+                pass
             qDebug('rqt_bag.TimelineFrame.load_plugins() loaded plugin "%s"' % plugin_descriptor.plugin_id())
 
     # Timeline renderer interaction functions
